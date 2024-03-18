@@ -27,7 +27,7 @@ print("Sorted list:", sorted(List))
 print("Sorted tuple:", Tuple)"""
 
 #Task 4
-# Input
+"""# Input
 input_numbers = input("Enter a series of space-separated integers: ")
 
 # Convert Input
@@ -75,4 +75,76 @@ print("Tuple remains unchanged:", numbers_tuple)
 print("Union of set:", set_union)
 print("Intersection of set:", set_intersection)
 print("Difference of set:", set_difference)
-print("Updated Dictionary:", numbers_dict)
+print("Updated Dictionary:", numbers_dict)"""
+
+#Task 5
+
+# Input
+input_numbers = input("Enter a series of space-separated integers: ")
+
+# Convert Input
+numbers_list = sorted([int(num) for num in input_numbers.split(" ")])
+numbers_tuple = (tuple(sorted(int(num) for num in input_numbers.split(" "))))
+
+# Manipulate List
+# Append 10 to the list
+numbers_list.append(10)
+# Insert 20 at index 2
+numbers_list.insert(2, 20)
+# Remove the element 8
+numbers_list.remove(8)
+
+# Attempt to Modify Tuple (this will raise an error)
+try:
+    # Append 10 to the tuple
+    numbers_tuple.append(10)
+except AttributeError:
+    print("Tuples are immutable and cannot be modified.")
+
+# Set Operations
+set1 = set(numbers_list)
+# Union
+set_union = set1.union({1, 10, 11, 12})
+# Intersection
+set_intersection = set1.intersection({1, 2, 3, 4, 5, 8})
+# Difference
+set_difference = set1.difference({1, 2, 3, 4, 5})
+
+# Dictionary Operations
+numbers_dict = {5: 25, 2: 4, 8: 64, 1: 1, 9: 81}
+print("Original Dictionary:", numbers_dict)
+# Add a new key-value pair
+numbers_dict[99] = -99
+numbers_dict.update({9999: -1111})
+# Delete an existing key-value pair
+numbers_dict.pop(5)
+del numbers_dict[2]
+numbers_dict.popitem()
+
+# Type Conversion
+list_to_tuple = tuple(numbers_list)
+list_to_set = set(numbers_list)
+list_to_dict = {index: value for index, value in enumerate(numbers_list)}
+tuple_to_list = list(numbers_tuple)
+tuple_to_set = set(numbers_tuple)
+tuple_to_dict = {value: value**2 for value in numbers_tuple}
+set_to_list = list(set1)
+set_to_tuple = tuple(set1)
+set_to_dict = {value: value**3 for value in set1}
+dict_to_list = sorted(numbers_dict.keys())
+dict_to_tuple = tuple(sorted(numbers_dict.keys()))
+dict_to_set = set(numbers_dict.values())
+
+# Print Output
+print("List to Tuple:", list_to_tuple)
+print("List to Set:", list_to_set)
+print("List to Dictionary:", list_to_dict)
+print("Tuple to List:", tuple_to_list)
+print("Tuple to Set:", tuple_to_set)
+print("Tuple to Dictionary:", tuple_to_dict)
+print("Set to List:", set_to_list)
+print("Set to Tuple:", set_to_tuple)
+print("Set to Dictionary:", set_to_dict)
+print("Dictionary to List:", dict_to_list)
+print("Dictionary to Tuple:", dict_to_tuple)
+print("Dictionary to Set:", dict_to_set)
