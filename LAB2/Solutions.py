@@ -14,7 +14,7 @@ print("Sorted tuple:", Tuple)"""
 line = input("Enter a series of space-separated integers: ")
 List = [int(num) for num in line.split(" ")]
 List.append(-9999)
-List.insert(1, 1111111)
+List.insert(1, 10)
 List.remove(-9999)
 Tuple = (tuple(sorted(int(num) for num in line.split(" "))))
 try:
