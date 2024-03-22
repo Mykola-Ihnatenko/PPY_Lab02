@@ -177,3 +177,24 @@ with open("output.txt", "r") as file:
 
 with open("output.txt", "a") as file:
     file.write("here\n")
+
+    # Count the number of lines in the file
+    with open("output.txt", "r") as file:
+        num_lines = sum(1 for line in file)
+        print("Number of lines in the file:", num_lines)
+
+    # Count the number of integers in the file
+    with open("output.txt", "r") as file:
+        all_numbers = file.read().split()
+        num_integers = sum(1 for num in all_numbers if num.isdigit())
+        print("Number of integers in the file:", num_integers)
+
+    # Add all integers in the file (sum)
+    with open("output.txt", "r") as file:
+        all_numbers = file.read().split()
+        integers_sum = sum(int(num) for num in all_numbers if num.isdigit())
+        print("Sum of all integers in the file:", integers_sum)
+
+    # Modify the content of the file
+    with open("output.txt", "a") as file:
+        file.write("\nFile content modified.")
