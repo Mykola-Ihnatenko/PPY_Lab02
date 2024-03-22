@@ -148,3 +148,32 @@ print("Set to Dictionary:", set_to_dict)
 print("Dictionary to List:", dict_to_list)
 print("Dictionary to Tuple:", dict_to_tuple)
 print("Dictionary to Set:", dict_to_set)
+
+
+# Task 6
+with open("output.txt", "w") as file:
+    file.write("Original Input: " + input_numbers + "\n")
+    file.write("List to Tuple: " + str(list_to_tuple) + "\n")
+    file.write("List to Set: " + str(list_to_set) + "\n")
+    file.write("List to Dictionary: " + str(list_to_dict) + "\n")
+    file.write("Tuple to List: " + str(tuple_to_list) + "\n")
+    file.write("Tuple to Set: " + str(tuple_to_set) + "\n")
+    file.write("Tuple to Dictionary: " + str(tuple_to_dict) + "\n")
+    file.write("Set to List: " + str(set_to_list) + "\n")
+    file.write("Set to Tuple: " + str(set_to_tuple) + "\n")
+    file.write("Set to Dictionary: " + str(set_to_dict) + "\n")
+    file.write("Dictionary to List: " + str(dict_to_list) + "\n")
+    file.write("Dictionary to Tuple: " + str(dict_to_tuple) + "\n")
+    file.write("Dictionary to Set: " + str(dict_to_set) + "\n")
+
+with open("output.txt", "r") as file:
+    num_lines = sum(1 for line in file)
+    print("Number of lines in the file:", num_lines)
+
+    file.seek(0)
+    for line in file:
+        if "Original Input" in line:
+            print("Original Input found:", line.strip())
+
+with open("output.txt", "a") as file:
+    file.write("here\n")
