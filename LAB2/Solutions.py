@@ -78,7 +78,7 @@ print("Difference of set:", set_difference)
 print("Updated Dictionary:", numbers_dict)"""
 
 #Task 5
-
+"""
 # Input
 input_numbers = input("Enter a series of space-separated integers: ")
 
@@ -197,4 +197,52 @@ with open("output.txt", "a") as file:
 
     # Modify the content of the file
     with open("output.txt", "a") as file:
-        file.write("\nFile content modified.")
+        file.write("\nFile content modified.")"""
+
+import math
+
+# Function to check if a number is prime
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+# Read the largest integer from the 'output.txt' file
+largest_integer = None
+with open("output.txt", "r") as file:
+    for line in file:
+        if line.startswith("Original Input"):
+            largest_integer = max(map(int, line.split()[-1].split(",")))
+            break
+
+# Handle the scenario where the largest integer cannot be found in the file
+if largest_integer is None:
+    print("Error: Largest integer not found in the file.")
+    exit()
+
+# Generate a list of all prime numbers up to the largest integer
+prime_numbers = [num for num in range(2, largest_integer + 1) if is_prime(num)]
+
+# Print the list of prime numbers
+print("List of prime numbers up to", largest_integer, ":", prime_numbers)
+
+# Calculate the sum of all prime numbers in the list
+prime_sum = sum(prime_numbers)
+
+# Determine the largest and smallest prime numbers in the list
+largest_prime = max(prime_numbers)
+smallest_prime = min(prime_numbers)
+
+# Check if the largest integer itself is prime
+largest_integer_prime = is_prime(largest_integer)
+
+# Write the list of prime numbers along with the sum, largest, and smallest prime numbers to a file 'prime_numbers.txt'
+with open("prime_numbers.txt", "w") as file:
+    file.write("List of prime numbers: " + str(prime_numbers) + "\n")
+    file.write("Sum of prime numbers: " + str(prime_sum) + "\n")
+    file.write("Largest prime number: " + str(largest_prime) + "\n")
+    file.write("Smallest prime number: " + str(smallest_prime) + "\n")
+    file.write("Is the largest integer prime?: " + ("Yes" if largest_integer_prime else "No") + "\n")
