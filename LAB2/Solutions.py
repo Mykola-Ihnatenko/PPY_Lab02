@@ -1,84 +1,5 @@
-# Task 1
-"""line = input("Enter a series of space-separated integers: ")
-x = [int(num) for num in line.split(" ")]
-print("Sorted list:", sorted(x))"""
+#Task 8
 
-# Task 2
-"""line = input("Enter a series of space-separated integers: ")
-List = [int(num) for num in line.split(" ")]
-Tuple = (tuple(sorted(List)))
-print("Sorted list:", sorted(List))
-print("Sorted tuple:", Tuple)"""
-
-# Task 3
-"""line = input("Enter a series of space-separated integers: ")
-List = [int(num) for num in line.split(" ")]
-List.append(-9999)
-List.insert(1, 10)
-List.remove(-9999)
-Tuple = (tuple(sorted(int(num) for num in line.split(" "))))
-try:
-    Tuple.append(-9999)
-    Tuple.insert(1, 1111111)
-    Tuple.remove(-9999)
-except AttributeError:
-    print("\nTuples are immutable and cannot be modified.\n")
-print("Sorted list:", sorted(List))
-print("Sorted tuple:", Tuple)"""
-
-#Task 4
-"""# Input
-input_numbers = input("Enter a series of space-separated integers: ")
-
-# Convert Input
-numbers_list = sorted([int(num) for num in input_numbers.split(" ")])
-numbers_tuple = (tuple(sorted(int(num) for num in input_numbers.split(" "))))
-
-# Manipulate List
-# Append 10 to the list
-numbers_list.append(10)
-# Insert 20 at index 2
-numbers_list.insert(2, 20)
-# Remove the element 8
-numbers_list.remove(8)
-
-# Attempt to Modify Tuple (this will raise an error)
-try:
-    # Append 10 to the tuple
-    numbers_tuple.append(10)
-except AttributeError:
-    print("Tuples are immutable and cannot be modified.")
-
-# Set Operations
-set1 = set(numbers_list)
-# Union
-set_union = set1.union({1, 10, 11, 12})
-# Intersection
-set_intersection = set1.intersection({1, 2, 3, 4, 5, 8})
-# Difference
-set_difference = set1.difference({1, 2, 3, 4, 5})
-
-# Dictionary Operations
-numbers_dict = {5: 25, 2: 4, 8: 64, 1: 1, 9: 81}
-print("Original Dictionary:", numbers_dict)
-# Add a new key-value pair
-numbers_dict[99] = -99
-numbers_dict.update({9999: -1111})
-# Delete an existing key-value pair
-numbers_dict.pop(5)
-del numbers_dict[2]
-numbers_dict.popitem()
-
-# Print Output
-print("Modified list:", numbers_list)
-print("Tuple remains unchanged:", numbers_tuple)
-print("Union of set:", set_union)
-print("Intersection of set:", set_intersection)
-print("Difference of set:", set_difference)
-print("Updated Dictionary:", numbers_dict)"""
-
-#Task 5
-"""
 # Input
 input_numbers = input("Enter a series of space-separated integers: ")
 
@@ -149,8 +70,6 @@ print("Dictionary to List:", dict_to_list)
 print("Dictionary to Tuple:", dict_to_tuple)
 print("Dictionary to Set:", dict_to_set)
 
-
-# Task 6
 with open("output.txt", "w") as file:
     file.write("Original Input: " + input_numbers + "\n")
     file.write("List to Tuple: " + str(list_to_tuple) + "\n")
@@ -197,11 +116,12 @@ with open("output.txt", "a") as file:
 
     # Modify the content of the file
     with open("output.txt", "a") as file:
-        file.write("\nFile content modified.")"""
+        file.write("\nFile content modified.")
 
+
+# Task 9
 import math
 
-# Function to check if a number is prime
 def is_prime(num):
     if num < 2:
         return False
@@ -210,7 +130,6 @@ def is_prime(num):
             return False
     return True
 
-# Read the largest integer from the 'output.txt' file
 largest_integer = None
 with open("output.txt", "r") as file:
     for line in file:
@@ -218,28 +137,21 @@ with open("output.txt", "r") as file:
             largest_integer = max(map(int, line.split()[-1].split(",")))
             break
 
-# Handle the scenario where the largest integer cannot be found in the file
 if largest_integer is None:
     print("Error: Largest integer not found in the file.")
     exit()
 
-# Generate a list of all prime numbers up to the largest integer
 prime_numbers = [num for num in range(2, largest_integer + 1) if is_prime(num)]
 
-# Print the list of prime numbers
 print("List of prime numbers up to", largest_integer, ":", prime_numbers)
 
-# Calculate the sum of all prime numbers in the list
 prime_sum = sum(prime_numbers)
 
-# Determine the largest and smallest prime numbers in the list
 largest_prime = max(prime_numbers)
 smallest_prime = min(prime_numbers)
 
-# Check if the largest integer itself is prime
 largest_integer_prime = is_prime(largest_integer)
 
-# Write the list of prime numbers along with the sum, largest, and smallest prime numbers to a file 'prime_numbers.txt'
 with open("prime_numbers.txt", "w") as file:
     file.write("List of prime numbers: " + str(prime_numbers) + "\n")
     file.write("Sum of prime numbers: " + str(prime_sum) + "\n")
