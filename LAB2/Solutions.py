@@ -158,3 +158,5 @@ with open("prime_numbers.txt", "w") as file:
     file.write("Largest prime number: " + str(largest_prime) + "\n")
     file.write("Smallest prime number: " + str(smallest_prime) + "\n")
     file.write("Is the largest integer prime?: " + ("Yes" if largest_integer_prime else "No") + "\n")
+
+#github: https://github.com/Mykola-Ihnatenko/PPY_Lab02/tree/Lab2-group17cAng-s28339
